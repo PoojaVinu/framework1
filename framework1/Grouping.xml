@@ -1,0 +1,16 @@
+<suite name="My Test Suite">
+	<listeners>
+		<listener class-name="utilities.ExtentReportUtility"></listener>
+	</listeners>
+	<test name="Grouping Test">
+		<parameter name="browser" value="chrome"></parameter>
+		<groups>
+			<run>
+				<include name="critical"></include>
+			</run>
+		</groups>
+		<classes>
+			<class name="testcases.WorkerTestCases"></class>
+		</classes>
+	</test>
+</suite>

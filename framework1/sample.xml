@@ -1,0 +1,11 @@
+<suite name="My Test Suites">
+	<listeners>
+		<listener class-name="utilities.ExtentReportUtility"></listener>
+	</listeners>
+	<test name="Sample Test xml">
+		<parameter name="browser" value="chrome"></parameter>
+		<classes>
+			<class name="testcases.TimeSheetTestCases"></class>
+		</classes>
+	</test>
+</suite>
