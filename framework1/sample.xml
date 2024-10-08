@@ -5,7 +5,7 @@
 	<test name="Sample Test xml">
 		<parameter name="browser" value="chrome"></parameter>
 		<classes>
-			<class name="testcases.TimeSheetTestCases"></class>
+			<class name="testcases.LoginTestCases"></class>
 		</classes>
 	</test>
 </suite>

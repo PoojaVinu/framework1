@@ -13,5 +13,6 @@ public class Constant {
 	public static final String errorMessageOfFontSize="Font size incorrect";
 	public static final String errorMessageOfNameOfWorker="Name not found";
 	public static final String errorMessageOfClientNameFound="Client name was not found";
+	public static final String errorMessageofLoginButton="Login feature is not working";
 	
 }

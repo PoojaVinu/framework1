@@ -7,6 +7,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import base.BaseClass;
+import constant.Constant;
 import elementRepository.DashBoardPage;
 import elementRepository.LoginPage;
 import utilities.ExcelReadUtility;
@@ -20,6 +21,6 @@ public class LoginTestCases extends BaseClass {
 		String actual = db.getTextFromHeading();
 
 		String expected = "PAYROLL APPLICATION";
-		Assert.assertEquals(actual, expected, "Login feature is not working");
+		Assert.assertEquals(actual, expected, Constant.errorMessageofLoginButton);
 	}
 }                                                   
