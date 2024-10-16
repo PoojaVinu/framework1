@@ -1,5 +1,11 @@
 package utilities;
 
+import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.Toolkit;
+import java.awt.datatransfer.StringSelection;
+import java.awt.event.KeyEvent;
+import java.io.File;
 import java.util.List;
 
 import org.openqa.selenium.By;
@@ -71,6 +77,43 @@ public class GeneralUtilities {
 			}
 		}
 		return value;
+	}
+	
+	public void FileUploadUtility(WebDriver driver, String filePath, WebElement uploadButton) {
+
+		//// put path to your image in a clipboard
+		String path= System.getProperty("user.dir")+filePath;
+		System.out.println("Path:" +path);
+		
+		StringSelection ss = new StringSelection(path);
+		Toolkit.getDefaultToolkit().getSystemClipboard().setContents(ss, null);
+
+		Actions action = new Actions(driver);
+		action.moveToElement(uploadButton).click().perform();
+
+		Robot robot;
+		try {
+			robot = new Robot();
+			robot.delay(1000);
+
+			// Keyboard actions
+			robot.keyPress(KeyEvent.VK_CONTROL);
+			robot.keyPress(KeyEvent.VK_V);
+
+			robot.delay(1000);
+
+			robot.keyRelease(KeyEvent.VK_CONTROL);
+			robot.keyRelease(KeyEvent.VK_V);
+
+			robot.delay(1000);
+
+			robot.keyPress(KeyEvent.VK_ENTER);
+			robot.delay(1000);
+			robot.keyRelease(KeyEvent.VK_ENTER);
+		} catch (AWTException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 }

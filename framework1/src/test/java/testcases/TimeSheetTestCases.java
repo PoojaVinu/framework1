@@ -13,7 +13,7 @@ import elementRepository.TimeSheetPage;
 import utilities.ExcelReadUtility;
 
 public class TimeSheetTestCases extends BaseClass {
-  @Test
+  @Test()
   public void verifyAlertBoxMessageWhenClickOnGenerateInvoice() throws IOException {
 	  LoginPage lp=new LoginPage(driver);
 	  DashBoardPage dp=lp.performLogin(ExcelReadUtility.readStringData(0,1),ExcelReadUtility.readStringData(1,1));
@@ -27,7 +27,7 @@ public class TimeSheetTestCases extends BaseClass {
 	  Assert.assertEquals(actualAlertMessageOfGenerateInvoice, expectedAlertMessageofGenerateInvoice,Constant.errorMessageOfAlertBox);
   }
   
-  @Test
+  @Test()
   public void verifyTextOfApproveTimeSheet() throws IOException {
 	  LoginPage lp=new LoginPage(driver);
 	  DashBoardPage db=lp.performLogin(ExcelReadUtility.readStringData(0,1),ExcelReadUtility.readStringData(1,1));
@@ -38,5 +38,20 @@ public class TimeSheetTestCases extends BaseClass {
 	  System.out.println("Approve Button :" + actualTextOfApproveButton);
 	  String expectedTextOfApproveButton="Approve Timesheets";
 	  Assert.assertEquals(actualTextOfApproveButton, expectedTextOfApproveButton,Constant.errorMessageOfApproveTimeSheetButton);
+  }
+  
+  @Test(enabled =false)
+  public void verifyFileUploadOfCreateTimeSheetPage() throws IOException, InterruptedException {
+	  LoginPage lp=new LoginPage(driver);
+	  DashBoardPage db=lp.performLogin(ExcelReadUtility.readStringData(0,1),ExcelReadUtility.readStringData(1,1));
+	  
+	  TimeSheetPage tp=db.clickOnTimeSheet();
+	  tp.clickOnCreateTimesheet();
+	  tp.browseAFileAndUpload();
+	  
+	  String actualText=tp.getTextFromCreateTimeSheetPage();
+	  System.out.println("Actual create time sheet page heading:" + actualText);
+	  String expectedText="CREATE TIMESHEET";
+	  Assert.assertEquals(actualText, expectedText,Constant.errorMessageOfText);
   }
 }

@@ -29,6 +29,14 @@ public class FakerUtility {
 		return emailId;
 	}
 	
+	public String getFakeFullName() {
+		
+		Faker faker=new Faker();
+		
+		String fullName=faker.name().fullName();
+		return fullName;
+	}
+	
 	
 
 }
